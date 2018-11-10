@@ -38,6 +38,7 @@ namespace CurrencyTrader.Gui
             ITradeMapper tradeMapper = new SimpleTradeMapper();
             ITradeParser tradeParser = new SimpleTradeParser(tradeValidator, tradeMapper);
 
+            //New decorator AsynchTradeStorage that makes an AdoNetTradeStorage object
             ITradeStorage tradeStorage = new AsynchTradeStorage(logger);
             tradeProcessor = new TradeProcessor(tradeDataProvider, tradeParser, tradeStorage);
         }
